@@ -14,40 +14,31 @@
 }
 
 body{
-  background:#0f172a;
+  background:#0b1220;
   color:#e2e8f0;
-  line-height:1.6;
 }
 
 /* NAV */
 nav{
   position:fixed;
-  width:100%;
   top:0;
-  left:0;
-  background:#111827;
+  width:100%;
   display:flex;
   justify-content:space-between;
   padding:15px 20px;
+  background:#0f172a;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
   z-index:1000;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-nav h1{
-  color:#38bdf8;
-  font-size:18px;
-}
-
+nav h1{ color:#38bdf8; font-size:18px; }
 nav a{
   color:#e2e8f0;
   margin-left:15px;
   text-decoration:none;
   font-size:14px;
 }
-
-nav a:hover{
-  color:#38bdf8;
-}
+nav a:hover{ color:#38bdf8; }
 
 /* HERO */
 header{
@@ -58,46 +49,41 @@ header{
   align-items:center;
   text-align:center;
   padding:20px;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
+  background:linear-gradient(135deg,#0b1220,#1e293b);
 }
 
 header h2{
-  font-size:35px;
+  font-size:40px;
   color:#38bdf8;
 }
 
 header p{
-  margin-top:10px;
   max-width:500px;
+  margin-top:10px;
   color:#94a3b8;
 }
 
 .btn{
   margin-top:20px;
-  padding:10px 20px;
-  background:#38bdf8;
+  padding:10px 18px;
   border:none;
-  color:#000;
   border-radius:8px;
+  background:#38bdf8;
   cursor:pointer;
   transition:0.3s;
 }
-
-.btn:hover{
-  transform:scale(1.05);
-}
+.btn:hover{ transform:scale(1.05); }
 
 /* SECTIONS */
 section{
-  padding:80px 20px;
   max-width:1000px;
   margin:auto;
+  padding:80px 20px;
 }
 
 h3{
   color:#38bdf8;
   margin-bottom:20px;
-  font-size:24px;
 }
 
 /* SKILLS */
@@ -110,8 +96,8 @@ h3{
 .skill{
   background:#1e293b;
   padding:10px;
-  border-radius:8px;
   text-align:center;
+  border-radius:8px;
 }
 
 /* PROJECTS */
@@ -134,40 +120,74 @@ h3{
   background:#334155;
 }
 
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
+/* CONTACT */
+.contact-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+input, textarea{
   width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
-}
-
-.modal-content{
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
   background:#1e293b;
-  padding:20px;
-  border-radius:10px;
-  width:90%;
-  max-width:400px;
+  color:white;
+  outline:none;
 }
 
-.close{
-  float:right;
+textarea{
+  height:120px;
+  resize:none;
+}
+
+.form-btn{
+  margin-top:10px;
+  width:100%;
+  background:#38bdf8;
+  border:none;
+  padding:10px;
+  border-radius:8px;
   cursor:pointer;
-  color:#38bdf8;
-  font-size:20px;
+}
+
+.email-btn{
+  margin-top:10px;
+  width:100%;
+  background:#22c55e;
+  border:none;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* SUCCESS POPUP */
+.popup{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#22c55e;
+  color:black;
+  padding:12px 15px;
+  border-radius:8px;
+  display:none;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  background:#111827;
+  background:#0f172a;
   color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-box{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -178,85 +198,82 @@ footer{
   <h1>MyPortfolio</h1>
   <div>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header id="home">
   <h2>Hi, I'm a Developer</h2>
-  <p>I build simple, clean and responsive websites as I grow in software development.</p>
-  <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
-    View Projects
+  <p>I build clean, responsive websites while learning full-stack development step by step.</p>
+  <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    Contact Me
   </button>
 </header>
-
-<section id="about">
-  <h3>About Me</h3>
-  <p>
-    I'm an aspiring software developer focused on web development and problem solving.
-    I enjoy building clean UI and learning new technologies step by step.
-  </p>
-</section>
-
-<section id="skills">
-  <h3>Skills</h3>
-  <div class="skills">
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">GitHub</div>
-    <div class="skill">Responsive Design</div>
-  </div>
-</section>
 
 <section id="projects">
   <h3>Projects</h3>
   <div class="projects">
+    <div class="card">Landing Page</div>
+    <div class="card">Portfolio Site</div>
+    <div class="card">Calculator App</div>
+  </div>
+</section>
 
-    <div class="card" onclick="openModal('Project 1','A simple landing page built with HTML, CSS and JS.')">
-      Landing Page
+<section id="contact">
+  <h3>Contact Me</h3>
+
+  <div class="contact-box">
+
+    <!-- FORM -->
+    <div>
+      <input type="text" id="name" placeholder="Your Name" />
+      <input type="email" id="email" placeholder="Your Email" />
+      <textarea id="message" placeholder="Your Message"></textarea>
+
+      <button class="form-btn" onclick="sendMessage()">Send Message</button>
     </div>
 
-    <div class="card" onclick="openModal('Project 2','A portfolio website with animations and responsive layout.')">
-      Portfolio Site
-    </div>
+    <!-- EMAIL BUTTON -->
+    <div>
+      <p style="color:#94a3b8">
+        Or contact me directly via email:
+      </p>
 
-    <div class="card" onclick="openModal('Project 3','A basic calculator app built using JavaScript logic.')">
-      Calculator App
+      <button class="email-btn" onclick="window.location.href='mailto:yourmail@gmail.com?subject=Portfolio Contact&body=Hello, I reached you from your portfolio'">
+        Send Email
+      </button>
     </div>
 
   </div>
 </section>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-  </div>
-</div>
+<div class="popup" id="popup">Message sent successfully ✅</div>
 
 <footer>
-  © 2026 My Portfolio | Built by Me
+  © 2026 My Portfolio
 </footer>
 
 <script>
-function openModal(title, text){
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalText').innerText = text;
-  document.getElementById('modal').style.display = "flex";
-}
+function sendMessage(){
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
 
-function closeModal(){
-  document.getElementById('modal').style.display = "none";
-}
-
-window.onclick = function(e){
-  if(e.target == document.getElementById('modal')){
-    closeModal();
+  if(name === "" || email === "" || message === ""){
+    alert("Please fill all fields");
+    return;
   }
+
+  document.getElementById("popup").style.display = "block";
+
+  setTimeout(()=>{
+    document.getElementById("popup").style.display = "none";
+  },3000);
+
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("message").value = "";
 }
 </script>
 
