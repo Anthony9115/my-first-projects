@@ -1,259 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antony Morise | Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Portfolio</title>
 
-  <style>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+body{
+  background:#0f172a;
+  color:#e2e8f0;
+  line-height:1.6;
+}
 
-    body{
-      font-family:Arial, sans-serif;
-      background:#020617;
-      color:white;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  background:#111827;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 20px;
+  z-index:1000;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
 
-    header{
-      text-align:center;
-      padding:100px 20px;
-      background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
-      animation:fadeDown 1.2s ease;
-    }
+nav h1{
+  color:#38bdf8;
+  font-size:18px;
+}
 
-    header h1{
-      font-size:52px;
-      margin-bottom:15px;
-      color:#f8fafc;
-    }
+nav a{
+  color:#e2e8f0;
+  margin-left:15px;
+  text-decoration:none;
+  font-size:14px;
+}
 
-    header p{
-      font-size:20px;
-      color:#94a3b8;
-    }
+nav a:hover{
+  color:#38bdf8;
+}
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:50px 20px;
-    }
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
 
-    section{
-      margin-bottom:70px;
-      animation:fadeUp 1s ease;
-    }
+header h2{
+  font-size:35px;
+  color:#38bdf8;
+}
 
-    h2{
-      font-size:30px;
-      margin-bottom:25px;
-      border-left:5px solid #8b5cf6;
-      padding-left:12px;
-      color:#f1f5f9;
-    }
+header p{
+  margin-top:10px;
+  max-width:500px;
+  color:#94a3b8;
+}
 
-    .card{
-      background:rgba(30,41,59,0.9);
-      border:1px solid rgba(139,92,246,0.2);
-      padding:25px;
-      border-radius:18px;
-      margin-bottom:25px;
-      transition:0.4s ease;
-      backdrop-filter:blur(10px);
-    }
+.btn{
+  margin-top:20px;
+  padding:10px 20px;
+  background:#38bdf8;
+  border:none;
+  color:#000;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    .card:hover{
-      transform:translateY(-10px) scale(1.02);
-      box-shadow:0 10px 35px rgba(139,92,246,0.35);
-    }
+.btn:hover{
+  transform:scale(1.05);
+}
 
-    .card h3{
-      margin-bottom:12px;
-      color:#e2e8f0;
-    }
+/* SECTIONS */
+section{
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
+}
 
-    .card p{
-      color:#cbd5e1;
-      margin-bottom:15px;
-    }
+h3{
+  color:#38bdf8;
+  margin-bottom:20px;
+  font-size:24px;
+}
 
-    a{
-      color:#a78bfa;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s ease;
-    }
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
+}
 
-    a:hover{
-      color:#c4b5fd;
-      opacity:0.9;
-    }
+.skill{
+  background:#1e293b;
+  padding:10px;
+  border-radius:8px;
+  text-align:center;
+}
 
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:15px;
-    }
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
 
-    .skill{
-      background:#111827;
-      border:1px solid rgba(139,92,246,0.3);
-      padding:12px 18px;
-      border-radius:12px;
-      transition:0.3s ease;
-      color:#e2e8f0;
-    }
+.card{
+  background:#1e293b;
+  padding:15px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    .skill:hover{
-      transform:scale(1.08);
-      background:#8b5cf6;
-      color:white;
-      box-shadow:0 5px 20px rgba(139,92,246,0.5);
-    }
+.card:hover{
+  transform:translateY(-5px);
+  background:#334155;
+}
 
-    footer{
-      text-align:center;
-      padding:35px;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#94a3b8;
-      font-size:14px;
-    }
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
+.modal-content{
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  width:90%;
+  max-width:400px;
+}
 
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+.close{
+  float:right;
+  cursor:pointer;
+  color:#38bdf8;
+  font-size:20px;
+}
 
-    @keyframes fadeDown{
-      from{
-        opacity:0;
-        transform:translateY(-30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-  </style>
-
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#111827;
+  color:#94a3b8;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Antony Morise</h1>
+<nav>
+  <h1>MyPortfolio</h1>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
 
-    <p>
-      Aspiring Software Developer • AI Workflow Enthusiast
-    </p>
-  </header>
+<header id="home">
+  <h2>Hi, I'm a Developer</h2>
+  <p>I build simple, clean and responsive websites as I grow in software development.</p>
+  <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+    View Projects
+  </button>
+</header>
 
-  <div class="container">
+<section id="about">
+  <h3>About Me</h3>
+  <p>
+    I'm an aspiring software developer focused on web development and problem solving.
+    I enjoy building clean UI and learning new technologies step by step.
+  </p>
+</section>
 
-    <section>
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">GitHub</div>
+    <div class="skill">Responsive Design</div>
+  </div>
+</section>
 
-      <h2>About Me</h2>
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="projects">
 
-      <div class="card">
+    <div class="card" onclick="openModal('Project 1','A simple landing page built with HTML, CSS and JS.')">
+      Landing Page
+    </div>
 
-        <p>
-          I am a self-taught aspiring software developer passionate about building modern web projects, learning JavaScript, and exploring AI workflow systems. I enjoy solving structured problems and continuously improving my technical skills through real-world projects.
-        </p>
+    <div class="card" onclick="openModal('Project 2','A portfolio website with animations and responsive layout.')">
+      Portfolio Site
+    </div>
 
-      </div>
-
-    </section>
-
-    <section>
-
-      <h2>Projects</h2>
-
-      <div class="card">
-
-        <h3>Personal Portfolio Website</h3>
-
-        <p>
-          A responsive portfolio website built using HTML and CSS to showcase my projects, skills, and development journey.
-        </p>
-
-        <a href="index.html" target="_blank">
-          View Project
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <h3>Task Manager App</h3>
-
-        <p>
-          A productivity web application that allows users to add, complete, and delete tasks using browser local storage.
-        </p>
-
-        <a href="task-manager.html" target="_blank">
-          View Project
-        </a>
-
-      </div>
-
-    </section>
-
-    <section>
-
-      <h2>Skills</h2>
-
-      <div class="skills">
-
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">GitHub</div>
-        <div class="skill">Responsive Design</div>
-        <div class="skill">AI Workflow Basics</div>
-
-      </div>
-
-    </section>
-
-    <section>
-
-      <h2>Contact</h2>
-
-      <div class="card">
-
-        <p>Email: yourname@email.com</p>
-
-        <p>
-          GitHub:
-          <a href="https://github.com/anthony9115" target="_blank">
-            github.com/anthony9115
-          </a>
-        </p>
-
-      </div>
-
-    </section>
+    <div class="card" onclick="openModal('Project 3','A basic calculator app built using JavaScript logic.')">
+      Calculator App
+    </div>
 
   </div>
+</section>
 
-  <footer>
-    © 2026 Antony Morise • Built with HTML, CSS & JavaScript
-  </footer>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<footer>
+  © 2026 My Portfolio | Built by Me
+</footer>
+
+<script>
+function openModal(title, text){
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalText').innerText = text;
+  document.getElementById('modal').style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display = "none";
+}
+
+window.onclick = function(e){
+  if(e.target == document.getElementById('modal')){
+    closeModal();
+  }
+}
+</script>
 
 </body>
 </html>
