@@ -2,136 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Task Manager App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antony Morise | Portfolio</title>
+
   <style>
-    body {
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #111827, #1e293b);
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 18px;
     }
 
     .container {
-      max-width: 600px;
-      margin: 60px auto;
-      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    h1 {
-      text-align: center;
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
       margin-bottom: 20px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px;
+      font-size: 28px;
     }
 
-    .input-box {
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .skills {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
     }
 
-    input {
-      flex: 1;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: none;
-      background: #38bdf8;
-      color: black;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    ul {
-      margin-top: 20px;
-      padding: 0;
-    }
-
-    li {
-      list-style: none;
-      background: #1e293b;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .done {
-      text-decoration: line-through;
-      opacity: 0.6;
-    }
-
-    .actions button {
-      margin-left: 5px;
+    .skill {
       background: #334155;
-      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;
     }
   </style>
 </head>
 
 <body>
+
+  <header>
+    <h1>Antony Morise</h1>
+    <p>Aspiring Software Developer | AI Workflow Enthusiast</p>
+  </header>
+
   <div class="container">
-    <h1>Task Manager</h1>
 
-    <div class="input-box">
-      <input id="taskInput" placeholder="Enter a task..." />
-      <button onclick="addTask()">Add</button>
-    </div>
+    <section>
+      <h2>About Me</h2>
 
-    <ul id="taskList"></ul>
+      <div class="card">
+        <p>
+          I am a self-taught aspiring software developer focused on building web projects, learning JavaScript, and exploring AI workflow systems. I enjoy solving structured problems and improving my skills through hands-on project development.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>Personal Portfolio Website</h3>
+        <p>
+          A responsive portfolio website built using HTML and CSS to showcase my projects and development journey.
+        </p>
+
+        <a href="index.html" target="_blank">View Project</a>
+      </div>
+
+      <div class="card">
+        <h3>Task Manager App</h3>
+
+        <p>
+          A productivity web app that allows users to add, complete, and delete tasks using browser local storage.
+        </p>
+
+        <a href="task-manager.html" target="_blank">View Project</a>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Responsive Design</div>
+        <div class="skill">AI Workflow Basics</div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+
+      <div class="card">
+        <p>Email: yourname@email.com</p>
+
+        <p>
+          GitHub:
+          <a href="https://github.com/anthony9115" target="_blank">
+            github.com/anthony9115
+          </a>
+        </p>
+      </div>
+
+    </section>
+
   </div>
 
-  <script>
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  <footer>
+    © 2026 Antony Morise. Built with HTML, CSS & JavaScript.
+  </footer>
 
-    function renderTasks() {
-      const list = document.getElementById("taskList");
-      list.innerHTML = "";
-
-      tasks.forEach((task, index) => {
-        list.innerHTML += `
-          <li>
-            <span class="${task.done ? 'done' : ''}">${task.text}</span>
-            <div class="actions">
-              <button onclick="toggleDone(${index})">✔</button>
-              <button onclick="deleteTask(${index})">🗑</button>
-            </div>
-          </li>
-        `;
-      });
-
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-
-    function addTask() {
-      const input = document.getElementById("taskInput");
-      if (input.value.trim() === "") return;
-
-      tasks.push({ text: input.value, done: false });
-      input.value = "";
-      renderTasks();
-    }
-
-    function toggleDone(index) {
-      tasks[index].done = !tasks[index].done;
-      renderTasks();
-    }
-
-    function deleteTask(index) {
-      tasks.splice(index, 1);
-      renderTasks();
-    }
-
-    renderTasks();
-  </script>
 </body>
 </html>
-<div class="card">
-  <h3>Task Manager App</h3>
-  <p>A simple productivity app that allows users to add, complete, and delete tasks. Built using HTML, CSS, and JavaScript with local storage support.</p>
-  <a href="task-manager.html">View Project</a>
-</div>
